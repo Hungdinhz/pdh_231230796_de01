@@ -1,0 +1,60 @@
+﻿@model pdh_231230796_de01.Models.PdhComputer
+
+@{
+    ViewData["Title"] = "Chỉnh sửa thông tin máy tính";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-primary text-white text-center rounded-top-4">
+            <h2 class="mb-0"><i class="bi bi-pencil-square me-2"></i>Chỉnh sửa thông tin máy tính</h2>
+        </div>
+
+        <div class="card-body p-4">
+            <form asp-action="PdhEdit">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <input type="hidden" asp-for="PdhComId" />
+
+                <div class="mb-3">
+                    <label asp-for="PdhComName" class="form-label fw-bold"></label>
+                    <input asp-for="PdhComName" class="form-control" placeholder="Nhập tên máy tính..." />
+                    <span asp-validation-for="PdhComName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="PdhComPrice" class="form-label fw-bold"></label>
+                    <input asp-for="PdhComPrice" class="form-control" placeholder="Nhập giá (VNĐ)..." />
+                    <span asp-validation-for="PdhComPrice" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="PdhComImage" class="form-label fw-bold"></label>
+                    <input asp-for="PdhComImage" class="form-control" placeholder="Đường dẫn hình ảnh hoặc URL..." />
+                    <span asp-validation-for="PdhComImage" class="text-danger"></span>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input class="form-check-input" asp-for="PdhComStatus" id="statusCheck" />
+                    <label class="form-check-label fw-semibold" for="statusCheck">
+                        @Html.DisplayNameFor(model => model.PdhComStatus)
+                    </label>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <a asp-action="PdhIndex" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left"></i> Quay lại danh sách
+                    </a>
+                    <button type="submit" class="btn btn-success px-4">
+                        <i class="bi bi-save2"></i> Lưu thay đổi
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

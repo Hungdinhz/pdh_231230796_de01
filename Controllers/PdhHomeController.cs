@@ -4,21 +4,26 @@ using pdh_231230796_de01.Models;
 
 namespace pdh_231230796_de01.Controllers
 {
-    public class HomeController : Controller
+    public class PdhHomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<PdhHomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public PdhHomeController(ILogger<PdhHomeController> logger)
         {
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult PdhIndex()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult PdhPrivacy()
+        {
+            return View();
+        }
+
+        public IActionResult PdhContact()
         {
             return View();
         }

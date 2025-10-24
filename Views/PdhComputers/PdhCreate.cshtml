@@ -1,0 +1,71 @@
+﻿@model pdh_231230796_de01.Models.PdhComputer
+
+@{
+    ViewData["Title"] = "Thêm máy tính mới";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0 rounded-4 col-md-6 mx-auto">
+        <div class="card-header bg-gradient bg-primary text-white rounded-top-4 d-flex justify-content-between align-items-center">
+            <h4 class="mb-0"><i class="bi bi-laptop"></i> Thêm máy tính mới</h4>
+            <a asp-action="PdhIndex" class="btn btn-light btn-sm fw-bold">
+                <i class="bi bi-arrow-left"></i> Quay lại
+            </a>
+        </div>
+
+        <div class="card-body p-4">
+            <form asp-action="PdhCreate">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+
+                 <div class="form-group mb-3">
+                    <label asp-for="PdhComId" class="form-label"></label>
+                    <input asp-for="PdhComId" class="form-control" />
+                    <span asp-validation-for="PdhComId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="PdhComName" class="form-label fw-semibold">Tên máy tính</label>
+                    <input asp-for="PdhComName" class="form-control" placeholder="Nhập tên máy tính..." />
+                    <span asp-validation-for="PdhComName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="PdhComPrice" class="form-label fw-semibold">Giá bán</label>
+                    <input asp-for="PdhComPrice" class="form-control" type="number" placeholder="Nhập giá bán (VNĐ)..." />
+                    <span asp-validation-for="PdhComPrice" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="PdhComImage" class="form-label fw-semibold">Hình ảnh (URL)</label>
+                    <input asp-for="PdhComImage" class="form-control" placeholder="Nhập link ảnh..." />
+                    <span asp-validation-for="PdhComImage" class="text-danger"></span>
+                </div>
+
+                <div class="form-check form-switch mb-4">
+                    <input class="form-check-input" asp-for="PdhComStatus" />
+                    <label class="form-check-label fw-semibold" asp-for="PdhComStatus">
+                        Còn hàng
+                    </label>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success px-4 me-2">
+                        <i class="bi bi-save"></i> Lưu
+                    </button>
+                    <a asp-action="PdhIndex" class="btn btn-secondary px-4">
+                        <i class="bi bi-x-circle"></i> Hủy
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
